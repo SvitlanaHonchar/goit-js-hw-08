@@ -1,7 +1,7 @@
 var throttle = require('lodash.throttle');
 const formEl = document.querySelector('.feedback-form');
 
-let userFeedback = {}; //об'єкт де зберігаються дані
+let userFeedback = gettingItem('feedback-form-state') || {}; //об'єкт де зберігаються дані
 
 initPage(); //виклик функції при завантаженні сторінки
 
@@ -26,8 +26,6 @@ function onInput(e) {
   userFeedback[name] = value;
   settingItem('feedback-form-state', userFeedback);
   // localStorage.setItem('feedback-form-state', JSON.stringify(userFeedback));
-
-  console.log(userFeedback);
 }
 
 function onSubmit(e) {
